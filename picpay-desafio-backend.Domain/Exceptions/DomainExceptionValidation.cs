@@ -1,0 +1,17 @@
+﻿using System;
+namespace picpay_desafio_backend.Domain.Exceptions
+{
+	public sealed class DomainExceptionValidation : Exception
+	{
+		public DomainExceptionValidation(string error) : base(error)
+		{
+		}
+
+        public static void When(bool hasError, string error)
+        {
+            if (hasError)
+                throw new DomainExceptionValidation(error);
+        }
+    }
+}
+
